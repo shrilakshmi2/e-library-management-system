@@ -19,29 +19,6 @@ The Library Management System is a web-based application developed using Django 
 
 
 
-or data storage during development.
-- **Git/GitHub**: Version control system and repository hosting platform for collaborative development.
-
-## Installation
-1. Clone the repository to your local machine using `git clone`.
-2. Navigate to the project directory.
-3. Create a virtual environment and activate it.
-4. Run migrations to create database tables: `python manage.py migrate`.
-
-
-
-
-or accessing the admin panel: `python manage.py createsuperuser`.
-7. Start the development server: `python manage.py runserver`.
-
-https://github.com/NiranjanBhat123/dbms_project_library_management_system/assets/111105882/a55f93fd-d324-4a88-849d-646821b11e6b
-
-## Usage
-- Access the application by visiting the URL provided by the development server.
-- Log in using your credentials or create a new account if you're a new user.
-- As an admin, you can manage books, genres, and student accounts through the admin panel.
-- Students can borrow and return books, search for available books, and view their borrowing history.
-
 
 
 
