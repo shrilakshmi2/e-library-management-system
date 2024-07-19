@@ -1,0 +1,57 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Library</title>
+  <link rel="stylesheet" href="{%static 'css/login.css' %}">
+</head>
+
+<body>
+
+  
+  <form action="" method="POST">
+    {%csrf_token%}
+    <div class="screen-1">
+      <div class="image" style="display: flex;align-items:center;justify-content:center;margin-bottom:2rem;">
+        <h2>Welcome !</h2>
+        
+      </div>
+      {% if messages %}
+        <div class="messages">
+          <ul>
+            {% for message in messages %}
+              <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      <div class="email">
+        <label for="email" style="font-size:.9rem">email</label>
+        <div class="sec-2">
+          <ion-icon name="mail-outline"></ion-icon>
+          <input type="text" name="email" style="font-size:.8rem;" />
+        </div>
+      </div>
+      <div class="password">
+        <label for="password">Password</label>
+        <div class="sec-2">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input class="pas" style="font-size:.8rem;" type="password" name="password" placeholder="" />
+          <ion-icon class="show-hide" name="eye-outline"></ion-icon>
+        </div>
+      </div>
+      <button class="login">Login</button>
+      <div class="footer" style="text-align: center;"><span>Dont have an account ? <a style="color: white;" href="{%url 'signup'%}">Sign
+            up</a></span></div>
+    </div>
+  </form>
+
+</body>
+<style>
+  
+</style>
+
+</html>

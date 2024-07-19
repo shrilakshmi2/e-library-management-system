@@ -1,0 +1,63 @@
+{% load static %}
+{% include 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{%static 'css/profile.css'%}">
+<script src="{%static 'js/profile.js'%}"></script>
+
+<style>
+    
+</style>
+
+<h3>My Profile</h3>
+<div class="profile-card">
+    <img src="{% static 'files/profile_image.webp' %}" alt="Profile Image">
+    <div class="profile-details">
+        <h2>{{user_profile.first_name}} {{user_profile.last_name}}</h2>
+        <h4>Student ID: {{user_profile.student_id}}</h4>
+        <h4>Email: {{user_profile.email}}</h4>
+    </div>
+</div>
+
+<h3 style="margin-top: 4rem;">My books</h3>
+
+<div class="book-container">
+
+    {% if user_profile.book1 %}
+    <div class="book-card">
+        <h2>{{ user_profile.book1.title }}</h2>
+        <p>Author: {{ user_profile.book1.author }}</p>
+        <p class="isbn">{{ user_profile.book1.isbn_number }}</p>
+        <p class="genre">Genre: {{ user_profile.book1.genre.name }}</p>
+    </div>
+    {% endif %}
+
+    {% if user_profile.book2 %}
+    <div class="book-card">
+        <h2>{{ user_profile.book2.title }}</h2>
+        <p>Author: {{ user_profile.book2.author }}</p>
+        <p class="isbn">{{ user_profile.book2.isbn_number }}</p>
+        <p class="genre">Genre: {{ user_profile.book2.genre.name }}</p>
+    </div>
+    {% endif %}
+
+</div>
+
+
+<div class="pdf-popover" id="pdf-viewer">
+    <div class="book-info" id="book-info"></div>
+    <iframe src="" frameborder="0"></iframe>
+    <div class="btn-container">
+        <button class="copy-btn" onclick="copyISBN()">copy ISBN</button>
+        <button class="close-btn" onclick="closePopover()"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path
+                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+            </svg></button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+
+{% endblock content %}

@@ -1,0 +1,34 @@
+{%load static%}
+{%include 'base.html'%}
+{%block content%}
+<link rel="stylesheet" href="{% static 'css/return_book.css'%}">
+
+
+
+
+<div class="borrow-container">
+    <h1>Return book</h1>
+    <form method="POST" action="">
+        {%csrf_token%}
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="success-message">
+                        {{ message }}
+                    </div>
+                {% else %}
+                    <div class="error-message">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <label for="isbn">Enter ISBN:</label>
+        <input type="text" id="isbn" name="isbn" required>
+        <button type="submit">Return</button>
+    </form>
+</div>
+
+
+{%endblock content%}

@@ -1,0 +1,84 @@
+{%load static%}
+{% include 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="{%static 'css/home.css' %}">
+<script src="{% static 'js/home.js'%}"></script>
+
+<div class="recent-books">
+    <h2 style="margin-top: 3rem; margin-bottom: 2rem; font-family: Montserrat; color: #3498db;">New additions !</h2>
+    <div class="recent-books-grid">
+        {% for book in recently_added_books %}
+        <div class="book-card recent-book {% if not book.is_available %}not-available{% endif %}" data-genre="{{ book.genre.id }}">
+            <h3>{{ book.title }}</h3>
+            <p class="genre">{{ book.genre.name }}</p>
+            <p class="isbn">{{ book.isbn_number }}</p>
+            <p>Author: {{ book.author }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="pdf-popover" id="pdf-viewer">
+    <div class="book-info" id="book-info"></div>
+    <iframe src="" frameborder="0"></iframe>
+    <div class="btn-container">
+        <button class="copy-btn" onclick="copyISBN()">copy ISBN</button>
+        <button class="close-btn" onclick="closePopover()"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path
+                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+            </svg></button>
+    </div>
+</div>
+
+
+
+<div class="genre-carousel">
+    <h1 style="margin-top: 3rem; font-family: Montserrat;">Genres</h1>
+    <div id="genreCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for genre in all_genres %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="genre-title" style="text-align: center;">
+                    <h2>{{ genre.name }}</h2>
+                </div>
+                <div class="genre-books-grid">
+                    {% for book in all_books %}
+                    {% if book.genre.id == genre.id %}
+                    <div class="book-card {% if not book.is_available %}not-available{% endif %}"
+                        data-genre="{{ book.genre.id }}">
+                        <h3>{{ book.title }}</h3>
+                        <p class="genre">{{ book.genre.name }}</p>
+                        <p class="isbn">{{ book.isbn_number }}</p>
+                        <p>Author: {{ book.author }}</p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#genreCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#genreCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
+
+
+<script>
+    
+</script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+
+
+
+{% endblock content %}
+

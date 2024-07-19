@@ -1,0 +1,255 @@
+.genre-carousel {
+    margin-bottom: 3rem;
+}
+
+.genre-carousel .carousel-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.genre-title {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    cursor: pointer;
+    background-color: #808080;
+
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    opacity: 0.8;
+
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    cursor: pointer;
+    background-color: black;
+
+    border-radius: 50%;
+
+    padding: 10px;
+
+}
+
+.genre-books-grid .book-card {
+    flex: 0 0 calc(32% - 20px);
+
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar label,
+.genre-filter label {
+    color: #3498db;
+    margin-right: 10px;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    flex: 1;
+}
+
+.genre-filter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.genre-filter select {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: #fff;
+}
+
+.recently-added,
+.all-books {
+    margin-top: 1rem;
+}
+
+.recent-books-grid,
+.all-books {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.book-card {
+    cursor: pointer;
+    height: 10rem;
+    position: relative;
+    background-color: #343434;
+    color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    overflow: hidden;
+}
+
+.book-card:not(.not-available):hover {
+    transform: translateY(-15px);
+    /* Adjust the value as needed for the desired upward movement */
+    transition: transform 0.3s;
+    /* Add a smooth transition effect */
+}
+
+.book-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.book-card p {
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.book-card .isbn {
+    margin-bottom: .5rem;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.book-card .genre {
+    margin-bottom: .5rem;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #27ae60;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.book-card.not-available {
+    color: black;
+    background-color: #eee;
+    opacity: 0.7;
+
+}
+
+.book-card.not-available:hover::before {
+    content: "Book Not Available";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 1;
+
+}
+
+.genre-books-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: flex-start;
+}
+
+.genre-title {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.genre-books-grid .book-card {
+    flex: 0 0 calc(32% - 20px);
+
+}
+
+
+
+
+
+
+
+
+
+
+.pdf-popover {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(44, 62, 80, 1);
+    /* Increased opacity for background */
+    border: 1px solid #3498db;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.pdf-popover iframe {
+    width: 100%;
+    height: 60vh;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+.pdf-btn,
+.copy-btn,
+.close-btn {
+    background-color: #27ae60;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.copy-btn {
+    background-color: #e74c3c;
+}
+
+.close-btn {
+    background-color: #3498db;
+}
+
+.book-info {
+    margin-bottom: 10px;
+}
+
+.isbn-info {
+    font-weight: bold;
+}

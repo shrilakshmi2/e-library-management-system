@@ -1,0 +1,24 @@
+{%load static%}
+{%include 'base.html'%}
+{%block content%}
+<link rel="stylesheet" href="{%static 'css/borrow.css'%}">
+<div class="borrow-container">
+    <h1>Borrow a Book</h1>
+    <form method="POST" action="">
+        {%csrf_token%}
+        {% if messages %}
+        <div class="error-message">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <label for="isbn">Enter ISBN:</label>
+        <input type="text" id="isbn" name="isbn" required>
+        <button type="submit">Borrow</button>
+    </form>
+</div>
+
+
+{%endblock content%}

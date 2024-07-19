@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@200;300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Yatra+One&display=swap');
+
+
+* {
+    font-family: "Montserrat";
+}
+
+* {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background-color: #1a1a1a;
+    /* Updated background color to a dark theme */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+    /* Updated text color to white */
+}
+
+.animated-check {
+    height: 10rem;
+    width: 10rem;
+}
+
+.animated-check path {
+    fill: none;
+    stroke: #7ac142;
+    stroke-width: 4;
+    stroke-dasharray: 23;
+    stroke-dashoffset: 23;
+    animation: draw 1s linear forwards;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+h1 {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    cursor: pointer;
+    background-color: #2980b9;
+}
